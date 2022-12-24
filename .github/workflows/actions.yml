@@ -15,6 +15,8 @@ jobs:
           credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}
       - name: 'Set up Cloud SDK'
         uses: google-github-actions/setup-gcloud@v1
+      - run: gcloud auth list
+      - run: bq ls
       - name: Add Permission to Script
         working-directory: ./
         run: chmod +x ./scripts/apply.sh
